@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Product;
+
 
 class ProductController extends Controller
 {
-    public function getProducts()
+    public function getProducts(): string
     {
-        return 'krasnal';
+
+        $product = new Product();
+        return $product->getAllProducts();
     }
 }
