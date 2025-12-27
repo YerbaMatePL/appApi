@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\ProductDTO;
 use App\Models\Product;
-
+use Illuminate\View\View;
 
 class PageController extends Controller
 {
@@ -12,12 +13,12 @@ class PageController extends Controller
         return view('welcome');
     }
 
-    public function products()
+    public function products(): View
 
     {
         $product = new Product();
-        $products = $product->getAllProducts();
+        $dto = new ProductDto(name: $product->getName());
 
-        return view('products', ['products' => $products]);
+        return view(view: 'products', data: ['products' => [$dto]]);
     }
 }
