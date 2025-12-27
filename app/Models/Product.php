@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
 
-    public function getAllProducts(): string
+    public function getName(): string
     {
-        $name = 'krasnal199';
-        return $name;
+        return 'kransal';
     }
 }
