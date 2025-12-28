@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\ProductResponse;
 use App\Models\Product;
-
 
 class ProductController extends Controller
 {
-    public function getProducts(): string
+    public function getProducts(): array
     {
 
-        $product = new Product();
-        return $product->getAllProducts();
+        $product = new Product(name: 'Krasnalek123');
+        $dto = new ProductResponse(name: $product->getName());
+        return [$dto];
     }
 }

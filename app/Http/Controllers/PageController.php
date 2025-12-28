@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\ProductResponse;
 use App\Models\Product;
-
+use Illuminate\View\View;
 
 class PageController extends Controller
 {
-    public function home()
+    public function homeView(): View
     {
-        return view('welcome');
+        return view(view: 'welcome');
     }
 
-    public function products()
+    public function productsView(): View
 
     {
-        $product = new Product();
-        $products = $product->getAllProducts();
+        $product = new Product(name: 'Krasnalek90');
+        $dto = new ProductResponse(name: $product->getName());
 
-        return view('products', ['products' => $products]);
+        return view(view: 'products', data: ['products' => [$dto]]);
     }
 }
