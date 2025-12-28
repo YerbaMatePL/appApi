@@ -1,3 +1,3 @@
 @foreach($products as $product)
-    <p>{{ $product->name }}</p>
+    <p>{{ $product->getName() }}</p>
 @endforeach
